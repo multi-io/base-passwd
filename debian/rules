@@ -2,6 +2,7 @@
 %:
 	dh $@ --with autoreconf
 
+export DEB_BUILD_MAINT_OPTIONS := hardening=+all
 export DEB_CFLAGS_MAINT_APPEND := -Wall
 
 override_dh_installdebconf:

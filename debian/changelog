@@ -1,3 +1,9 @@
+base-passwd (3.5.35) UNRELEASED; urgency=medium
+
+  * Build with all hardening options (thanks, Markus).
+
+ -- Colin Watson <cjwatson@debian.org>  Sun, 31 Aug 2014 18:05:16 +0100
+
 base-passwd (3.5.34) unstable; urgency=medium
 
   * Debconf translations:
