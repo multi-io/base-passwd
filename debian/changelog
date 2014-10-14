@@ -1,3 +1,10 @@
+base-passwd (3.5.37) UNRELEASED; urgency=medium
+
+  * Debconf translations:
+    - Dutch (thanks, Frans Spiesschaert; closes: #765361).
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 14 Oct 2014 14:16:41 +0100
+
 base-passwd (3.5.36) unstable; urgency=medium
 
   * Update Vcs-Browser URL yet again.
