@@ -2,6 +2,7 @@ base-passwd (3.5.37) UNRELEASED; urgency=medium
 
   * Debconf translations:
     - Dutch (thanks, Frans Spiesschaert; closes: #765361).
+    - Danish (thanks, Joe Hansen; closes: #765853).
 
  -- Colin Watson <cjwatson@debian.org>  Tue, 14 Oct 2014 14:16:41 +0100
 
