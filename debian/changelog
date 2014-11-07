@@ -1,4 +1,4 @@
-base-passwd (3.5.37) UNRELEASED; urgency=medium
+base-passwd (3.5.37) unstable; urgency=medium
 
   * Debconf translations:
     - Dutch (thanks, Frans Spiesschaert; closes: #765361).
@@ -8,7 +8,7 @@ base-passwd (3.5.37) UNRELEASED; urgency=medium
     configure the Essential set in slightly different orders (based on a
     patch from Michael Tautschnig; see #766459 and #767999).
 
- -- Colin Watson <cjwatson@debian.org>  Tue, 14 Oct 2014 14:16:41 +0100
+ -- Colin Watson <cjwatson@debian.org>  Fri, 07 Nov 2014 15:44:29 +0000
 
 base-passwd (3.5.36) unstable; urgency=medium
 
