@@ -17,5 +17,11 @@ override_dh_installdebconf:
 override_dh_shlibdeps:
 	dh_shlibdeps -- -dPre-Depends
 
+override_dh_installdeb:
+	dh_installdeb
+	sed -e '/@PASSWD@/ {' -e 'r passwd.master' -e 'd' -e '}' \
+	    -e '/@GROUP@/ {' -e 'r group.master' -e 'd' -e '}' \
+	    -i debian/base-passwd/DEBIAN/preinst
+
 override_dh_builddeb:
 	dh_builddeb -- -Zgzip

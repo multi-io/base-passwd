@@ -3,6 +3,10 @@ base-passwd (3.5.37) UNRELEASED; urgency=medium
   * Debconf translations:
     - Dutch (thanks, Frans Spiesschaert; closes: #765361).
     - Danish (thanks, Joe Hansen; closes: #765853).
+  * Copy /etc/passwd and /etc/group from the master files in the preinst on
+    initial install, to be more tolerant of bootstrapping tools that
+    configure the Essential set in slightly different orders (based on a
+    patch from Michael Tautschnig; see #766459 and #767999).
 
  -- Colin Watson <cjwatson@debian.org>  Tue, 14 Oct 2014 14:16:41 +0100
 
