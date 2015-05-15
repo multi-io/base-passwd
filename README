@@ -47,6 +47,7 @@ Reserved uids:
     64025 | vpopmail          | vpopmail
     64030 | slurm             | slurm-llnl package
     64035 | hacluster         | heartbeat
+    64045 | ceph              | ceph object storage
 
 Reserved gids:
     gid   | name              | description
@@ -65,8 +66,9 @@ Reserved gids:
     64042 | grsec-sock-clt    | linux-grsec-base
     64043 | grsec-sock-srv    | linux-grsec-base
     64044 | grsec-proc        | linux-grsec-base
+    64045 | ceph              | ceph object storage
 
-(Next uid/gid allocation: 64045.)
+(Next uid/gid allocation: 64050.)
 
 You *may not* use any uids or gids in the 60000-64999 range without *first*
 requesting an allocation from base-passwd@packages.debian.org and waiting

@@ -4,6 +4,8 @@ base-passwd (3.5.38) UNRELEASED; urgency=medium
     (see changelog for 3.5.26) to just dpkg (>= 1.16.4), since that was some
     time ago and wheezy has a sufficient version now, and the more elaborate
     form causes a complaint from debcheck.
+  * Allocate uid/gid 64045 for ceph object storage, by request of Gaudenz
+    Steinlin.
 
  -- Colin Watson <cjwatson@debian.org>  Thu, 19 Mar 2015 10:36:00 +0000
 
