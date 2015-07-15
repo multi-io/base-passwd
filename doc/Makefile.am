@@ -6,4 +6,4 @@ users-and-groups.html: users-and-groups.sgml
 	sgmltools -b onehtml $<
 
 users-and-groups.txt: users-and-groups.sgml
-	sgmltools -b txt $<
+	LC_ALL=C.UTF-8 sgmltools -b txt $<
