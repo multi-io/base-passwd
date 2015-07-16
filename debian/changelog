@@ -1,4 +1,4 @@
-base-passwd (3.5.38) UNRELEASED; urgency=medium
+base-passwd (3.5.38) unstable; urgency=medium
 
   [ Colin Watson ]
   * Simplify dpkg (>= 1.16.4) | sgml-base (<< 1.26+nmu2) build-dependency
@@ -13,7 +13,7 @@ base-passwd (3.5.38) UNRELEASED; urgency=medium
   [ Juan Picca ]
   * Make documentation build reproducible (closes: #792520).
 
- -- Colin Watson <cjwatson@debian.org>  Thu, 19 Mar 2015 10:36:00 +0000
+ -- Colin Watson <cjwatson@debian.org>  Thu, 16 Jul 2015 13:26:42 +0100
 
 base-passwd (3.5.37) unstable; urgency=medium
 
