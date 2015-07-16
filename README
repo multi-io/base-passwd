@@ -48,6 +48,7 @@ Reserved uids:
     64030 | slurm             | slurm-llnl package
     64035 | hacluster         | heartbeat
     64045 | ceph              | ceph object storage
+    64050 | opensrf           | Evergreen ILS
 
 Reserved gids:
     gid   | name              | description
@@ -67,8 +68,9 @@ Reserved gids:
     64043 | grsec-sock-srv    | linux-grsec-base
     64044 | grsec-proc        | linux-grsec-base
     64045 | ceph              | ceph object storage
+    64050 | opensrf           | Evergreen ILS
 
-(Next uid/gid allocation: 64050.)
+(Next uid/gid allocation: 64055.)
 
 You *may not* use any uids or gids in the 60000-64999 range without *first*
 requesting an allocation from base-passwd@packages.debian.org and waiting

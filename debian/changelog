@@ -7,6 +7,8 @@ base-passwd (3.5.38) UNRELEASED; urgency=medium
     form causes a complaint from debcheck.
   * Allocate uid/gid 64045 for ceph object storage, by request of Gaudenz
     Steinlin.
+  * Allocate uid/gid 64050 for the Evergreen ILS, by request of Robin H.
+    Johnson.
 
   [ Juan Picca ]
   * Make documentation build reproducible (closes: #792520).
