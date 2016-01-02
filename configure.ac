@@ -9,6 +9,7 @@ AM_INIT_AUTOMAKE([-Wall foreign])
 dnl Let's see if all programs we need are installed
 AC_PROG_CC
 AC_PROG_INSTALL
+AC_SYS_LARGEFILE
 
 dnl Scan for things we need
 AC_CHECK_FUNCS([putgrent])

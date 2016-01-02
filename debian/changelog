@@ -1,6 +1,7 @@
 base-passwd (3.5.39) UNRELEASED; urgency=medium
 
   * Policy version 3.9.6: no changes required.
+  * Build with large file support.
 
  -- Colin Watson <cjwatson@debian.org>  Sat, 29 Aug 2015 16:15:25 +0100
 
