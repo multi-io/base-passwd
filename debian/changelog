@@ -3,6 +3,8 @@ base-passwd (3.5.40) UNRELEASED; urgency=medium
   * Use HTTPS for git URLs.
   * Debconf translations:
     - Brazilian Portuguese (thanks, José de Figueiredo; closes: #815514).
+  * update-passwd(8) translations:
+    - Japanese (thanks, Takuma Yamada; closes: #819211).
 
  -- Colin Watson <cjwatson@debian.org>  Wed, 27 Jan 2016 10:13:01 +0000
 
