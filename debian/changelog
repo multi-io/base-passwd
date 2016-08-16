@@ -7,6 +7,7 @@ base-passwd (3.5.40) UNRELEASED; urgency=medium
     - Japanese (thanks, Takuma Yamada; closes: #819211).
   * Stop forcing gzip compression for .deb, as the vast majority of the rest
     of the base system is now xz anyway.
+  * Policy version 3.9.8: no changes required.
 
  -- Colin Watson <cjwatson@debian.org>  Wed, 27 Jan 2016 10:13:01 +0000
 
