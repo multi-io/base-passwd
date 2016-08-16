@@ -1,4 +1,4 @@
-base-passwd (3.5.40) UNRELEASED; urgency=medium
+base-passwd (3.5.40) unstable; urgency=medium
 
   * Use HTTPS for git URLs.
   * Debconf translations:
@@ -9,7 +9,7 @@ base-passwd (3.5.40) UNRELEASED; urgency=medium
     of the base system is now xz anyway.
   * Policy version 3.9.8: no changes required.
 
- -- Colin Watson <cjwatson@debian.org>  Wed, 27 Jan 2016 10:13:01 +0000
+ -- Colin Watson <cjwatson@debian.org>  Tue, 16 Aug 2016 09:21:34 +0100
 
 base-passwd (3.5.39) unstable; urgency=medium
 
