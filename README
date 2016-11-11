@@ -49,6 +49,7 @@ Reserved uids:
     64035 | hacluster         | heartbeat
     64045 | ceph              | ceph object storage
     64050 | opensrf           | Evergreen ILS
+    64055 | libvirt-qemu      | libvirt guest migration support
 
 Reserved gids:
     gid   | name              | description
@@ -69,8 +70,9 @@ Reserved gids:
     64044 | grsec-proc        | linux-grsec-base
     64045 | ceph              | ceph object storage
     64050 | opensrf           | Evergreen ILS
+    64055 | libvirt-qemu      | libvirt guest migration support
 
-(Next uid/gid allocation: 64055.)
+(Next uid/gid allocation: 64060.)
 
 You *may not* use any uids or gids in the 60000-64999 range without *first*
 requesting an allocation from base-passwd@packages.debian.org and waiting

@@ -1,3 +1,10 @@
+base-passwd (3.5.41) UNRELEASED; urgency=medium
+
+  * Allocate uid/gid 64055 for libvirt guest migration support, by request
+    of Mauricio Faria de Oliveira (closes: #843881, LP: #1637601).
+
+ -- Colin Watson <cjwatson@debian.org>  Fri, 11 Nov 2016 21:40:32 +0000
+
 base-passwd (3.5.40) unstable; urgency=medium
 
   * Use HTTPS for git URLs.
