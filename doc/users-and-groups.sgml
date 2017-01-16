@@ -411,15 +411,6 @@
       </varlistentry>
 
       <varlistentry>
-	<term>haldaemon</term>
-	<listitem>
-	  <para>
-	    Used by the hardware abstraction layer (<command>hal</command>).
-	  </para>
-	</listitem>
-      </varlistentry>
-
-      <varlistentry>
 	<term>gdm</term>
 	<listitem>
 	  <para>
