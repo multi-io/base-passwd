@@ -1490,5 +1490,10 @@ int main(int argc, char** argv) {
 	return 0;
 }
 
+/* Local Variables:     */
+/* indent-tabs-mode: t  */
+/* tab-width: 8         */
+/* End:                 */
+
 /* vim: ts=8 sw=4 cindent si
  */
