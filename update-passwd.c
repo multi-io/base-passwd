@@ -674,6 +674,8 @@ void process_moved_entries(const struct _info* lst, struct _node** passwd, struc
 	walk=walk->next;
     }
     while (walk) {
+	struct _node*	next=walk->next;
+	
 	if (find_by_named_entry(master, walk)) {
 	    if (!noautoadd(lst, walk->id)) {
 		struct _node*	movednode=walk;
@@ -707,11 +709,11 @@ void process_moved_entries(const struct _info* lst, struct _node** passwd, struc
 		    flag_dirty++;
 		}
 
-		walk=walk->next;
+		walk=next;
 		continue;
 	    }
 	}
-	walk=walk->next;
+	walk=next;
     }
 }
 
@@ -772,13 +774,15 @@ void process_old_entries(const struct _info* lst, struct _node** passwd, struct 
     struct _node*	walk=*passwd;
 
     while (walk) {
+	struct _node*	next = walk->next;
+	
 	if ((walk->id<0) || (walk->id>99)) {
-	    walk=walk->next;
+	    walk=next;
 	    continue;
 	}
 
 	if (noautoremove(lst, walk->id)) {
-	    walk=walk->next;
+	    walk=next;
 	    continue;
 	}
 
@@ -811,10 +815,10 @@ void process_old_entries(const struct _info* lst, struct _node** passwd, struct 
 		remove_node(passwd, walk);
 		flag_dirty++;
 	    }
-	    walk=walk->next;
+	    walk=next;
 	    continue;
 	}
-	walk=walk->next;
+	walk=next;
     }
 }
 
