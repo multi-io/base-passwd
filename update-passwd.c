@@ -1472,7 +1472,8 @@ int main(int argc, char** argv) {
     umask(0077);
 
     if (!commit_files()) {
-	unlock_files();
+	if (!opt_nolock && !opt_dryrun)
+	    unlock_files();
 	return 4;
     }
 
