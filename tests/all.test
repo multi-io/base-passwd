@@ -1,0 +1,31 @@
+#!/bin/sh
+
+cd "$(dirname $0)"
+program=../update-passwd
+
+tests="test-*"
+
+echo 1..$(echo $tests | wc -w)
+n=1
+for t in $tests; do
+    status=ok
+    echo ">>>> RUNNING: $t"
+    mkdir -p testrun
+    rm -rf testrun/*
+    cp -f "$t"/* testrun/
+    opts=""
+    if test -f "$t/opts"; then
+	opts=$(cat "$t/opts")
+    fi
+    if "$program" -P testrun/passwd -p testrun/passwd.master -G testrun/group -g testrun/group.master -S testrun/shadow -L $opts "$@"; then
+	#TODO make sure we catch any unexpected errors 
+	diff -u testrun/passwd.expected testrun/passwd || status='not ok'
+	diff -u testrun/group.expected testrun/group || status='not ok'
+	diff -u testrun/shadow.expected testrun/shadow || status='not ok'
+    else
+	status='not ok'
+    fi
+    echo "$status $n - $t"
+    n=$(( $n + 1 ))
+done
+
