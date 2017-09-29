@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: base passwd man page 3.5.30\n"
-"POT-Creation-Date: 2014-01-07 14:00+0000\n"
+"POT-Creation-Date: 2017-09-29 21:15+0000\n"
 "PO-Revision-Date: 2014-01-13 10:17+0100\n"
 "Last-Translator: Helge Kreutzmann <debian@helgefjell.de>\n"
 "Language-Team: de <debian-l10n-german@lists.debian.org>\n"
@@ -186,19 +186,45 @@ msgstr ""
 # type: TP
 #. type: TP
 #: ../update-passwd.8:44
+#, fuzzy, no-wrap
+#| msgid "B<-n>,\\ B<--dry-run>"
+msgid "B<-N>,\\ B<--only-new>"
+msgstr "B<-n>,\\ B<--dry-run>"
+
+#. type: Plain text
+#: ../update-passwd.8:47
+msgid "Only add missing entries, don't modify or remove existing ones."
+msgstr ""
+
+# type: TP
+#. type: TP
+#: ../update-passwd.8:47
+#, fuzzy, no-wrap
+#| msgid "B<-h>,\\ B<--help>"
+msgid "B<-A>,\\ B<--all-ids>"
+msgstr "B<-h>,\\ B<--help>"
+
+#. type: Plain text
+#: ../update-passwd.8:50
+msgid "Process all IDs, not just 0-99."
+msgstr ""
+
+# type: TP
+#. type: TP
+#: ../update-passwd.8:50
 #, no-wrap
 msgid "B<-s>,\\ B<--sanity-check>"
 msgstr "B<-s>,\\ B<--sanity-check>"
 
 # type: Plain text
 #. type: Plain text
-#: ../update-passwd.8:47
+#: ../update-passwd.8:53
 msgid "Only perform sanity-checks but don't do anything."
 msgstr "Nur Plausibilitätsprüfungen durchführen aber nichts ändern."
 
 # type: TP
 #. type: TP
-#: ../update-passwd.8:47
+#: ../update-passwd.8:53
 #, no-wrap
 msgid "B<-v>,\\ B<--verbose>"
 msgstr "B<-v>,\\ B<--verbose>"
@@ -206,7 +232,7 @@ msgstr "B<-v>,\\ B<--verbose>"
 # type: Plain text
 # FIXME: s/about/about what/ 
 #. type: Plain text
-#: ../update-passwd.8:51
+#: ../update-passwd.8:57
 msgid ""
 "Give detailed information about what we are doing.  A second -v gives "
 "additional detail."
@@ -216,27 +242,27 @@ msgstr ""
 
 # type: TP
 #. type: TP
-#: ../update-passwd.8:51
+#: ../update-passwd.8:57
 #, no-wrap
 msgid "B<-n>,\\ B<--dry-run>"
 msgstr "B<-n>,\\ B<--dry-run>"
 
 # type: Plain text
 #. type: Plain text
-#: ../update-passwd.8:54
+#: ../update-passwd.8:60
 msgid "Don't do anything but only show what we would do."
 msgstr "Nichts durchführen, nur zeigen, was getan würde."
 
 # type: TP
 #. type: TP
-#: ../update-passwd.8:54
+#: ../update-passwd.8:60
 #, no-wrap
 msgid "B<-L>,\\ B<--no-locking>"
 msgstr "B<-L>,\\ B<--no-locking>"
 
 # type: Plain text
 #. type: Plain text
-#: ../update-passwd.8:59
+#: ../update-passwd.8:65
 msgid ""
 "Don't attempt to lock the account database.  This should only be used for "
 "debugging purposes.  B<I repeat: do not do this unless you are really sure "
@@ -248,44 +274,44 @@ msgstr ""
 
 # type: TP
 #. type: TP
-#: ../update-passwd.8:59
+#: ../update-passwd.8:65
 #, no-wrap
 msgid "B<-h>,\\ B<--help>"
 msgstr "B<-h>,\\ B<--help>"
 
 # type: Plain text
 #. type: Plain text
-#: ../update-passwd.8:63
+#: ../update-passwd.8:69
 msgid "Show a summary of how to use B<update-passwd>."
 msgstr "Eine Übersicht über die Verwendung von B<update-passwd> anzeigen."
 
 # type: TP
 #. type: TP
-#: ../update-passwd.8:63
+#: ../update-passwd.8:69
 #, no-wrap
 msgid "B<-V>,\\ B<--version>"
 msgstr "B<-V>,\\ B<--version>"
 
 # type: Plain text
 #. type: Plain text
-#: ../update-passwd.8:66
+#: ../update-passwd.8:72
 msgid "Show the version number"
 msgstr "Versionsnummer anzeigen"
 
 #. type: SH
-#: ../update-passwd.8:66
+#: ../update-passwd.8:72
 #, no-wrap
 msgid "ENVIRONMENT"
 msgstr "UMGEBUNG"
 
 #. type: TP
-#: ../update-passwd.8:67
+#: ../update-passwd.8:73
 #, no-wrap
 msgid "DEBIAN_HAS_FRONTEND"
 msgstr "DEBIAN_HAS_FRONTEND"
 
 #. type: Plain text
-#: ../update-passwd.8:81
+#: ../update-passwd.8:87
 msgid ""
 "If this environment variable is sent and the B<--dry-run> flag was not "
 "given, B<update-passwd> uses debconf to prompt for whether to make changes.  "
@@ -309,14 +335,14 @@ msgstr ""
 
 # type: SH
 #. type: SH
-#: ../update-passwd.8:81
+#: ../update-passwd.8:87
 #, no-wrap
 msgid "BUGS"
 msgstr "FEHLER"
 
 # type: Plain text
 #. type: Plain text
-#: ../update-passwd.8:87
+#: ../update-passwd.8:93
 msgid ""
 "At this moment B<update-passwd> does not verify the shadow-file.  It should "
 "check if the entries in the passwd are also in shadow and vice versa, and "
@@ -329,20 +355,20 @@ msgstr ""
 
 # type: SH
 #. type: SH
-#: ../update-passwd.8:87
+#: ../update-passwd.8:93
 #, no-wrap
 msgid "AUTHOR"
 msgstr "AUTOR"
 
 # type: Plain text
 #. type: Plain text
-#: ../update-passwd.8:89
+#: ../update-passwd.8:95
 msgid "Wichert Akkerman E<lt>wakkerma@debian.orgE<gt>"
 msgstr "Wichert Akkerman E<lt>wakkerma@debian.orgE<gt>"
 
 # type: Plain text
 #. type: Plain text
-#: ../update-passwd.8:93
+#: ../update-passwd.8:99
 msgid ""
 "This program was written for the Debian project, and is copyright "
 "1999\\(en2002 Wichert Akkerman and copyright 2002, 2003 Colin Watson.  It is "

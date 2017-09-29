@@ -42,6 +42,12 @@ Use FILE as the system group database.
 The default value is
 .IR /etc/group .
 .TP
+.BR \-N ,\  \-\-only\-new
+Only add missing entries, don't modify or remove existing ones.
+.TP
+.BR \-A ,\  \-\-all\-ids
+Process all IDs, not just 0-99.
+.TP
 .BR \-s ,\  \-\-sanity\-check
 Only perform sanity-checks but don't do anything.
 .TP
