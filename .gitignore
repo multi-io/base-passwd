@@ -30,3 +30,4 @@ man/update-passwd.es.8
 man/update-passwd.fr.8
 man/update-passwd.ja.8
 man/update-passwd.ru.8
+tests/testrun/

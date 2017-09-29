@@ -1,0 +1,5 @@
+user3:x:53:53:grp3:/dev:/usr/sbin/nologin
+user4:x:54:54:grp4:/bin:/bin/sync
+user5:x:55:55:grp5:/usr/games:/usr/sbin/nologinx
+user6:x:54:54:grp4:/bin:/bin/sync
+user7:x:54:54:grp4:/bin:/bin/sync
