@@ -1,3 +1,10 @@
+base-passwd (3.5.45) UNRELEASED; urgency=medium
+
+  [ Olaf Klischat ]
+  * Bugfix deleting removed IDs only removed the first one.
+  * New options -A, -N.
+  * simple integration test suite
+
 base-passwd (3.5.44) unstable; urgency=medium
 
   * users-and-groups: Remove apparently-unfounded rumour that
