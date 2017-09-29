@@ -783,7 +783,6 @@ void process_old_entries(const struct _info* lst, struct _node** passwd, struct 
 	}
 
 	if (find_by_named_entry(master, walk)==NULL) {
-	    struct _node*	oldnode=walk;
 	    int			make_change=1;
 
 	    if (flag_debconf) {
@@ -794,11 +793,11 @@ void process_old_entries(const struct _info* lst, struct _node** passwd, struct 
 
 		if (strcmp(descr, "group")==0)
 		    domain=group_domain;
-		question=xasprintf("base-passwd/%s/%s/%s/remove", domain, descr, oldnode->name);
+		question=xasprintf("base-passwd/%s/%s/%s/remove", domain, descr, walk->name);
 		template=xasprintf("base-passwd/%s-remove", descr);
-		id=xasprintf("%u", oldnode->id);
+		id=xasprintf("%u", walk->id);
 		DEBCONF_REGISTER(template, question);
-		DEBCONF_SUBST(question, "name", oldnode->name);
+		DEBCONF_SUBST(question, "name", walk->name);
 		DEBCONF_SUBST(question, "id", id);
 		make_change=ask_debconf("high", question);
 		free(question);
@@ -808,8 +807,8 @@ void process_old_entries(const struct _info* lst, struct _node** passwd, struct 
 
 	    if (make_change) {
 		if (opt_verbose)
-		    printf("Removing %s \"%s\" (%u)\n", descr, oldnode->name, oldnode->id);
-		remove_node(passwd, oldnode);
+		    printf("Removing %s \"%s\" (%u)\n", descr, walk->name, walk->id);
+		remove_node(passwd, walk);
 		flag_dirty++;
 	    }
 	    walk=walk->next;
