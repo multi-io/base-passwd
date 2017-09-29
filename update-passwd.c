@@ -132,6 +132,8 @@ struct _node*	system_accounts	= NULL;
 struct _node*	system_shadow	= NULL;
 struct _node*	system_groups	= NULL;
 
+int		opt_only_new	= 0;
+int		opt_all_ids	= 0;
 int		opt_dryrun	= 0;
 int		opt_verbose	= 0;
 int		opt_nolock	= 0;
@@ -590,6 +592,8 @@ void usage() {
 	"  -P, --passwd=file         Use file as the system passwd file\n"
 	"  -S, --shadow=file         Use file as the system shadow file\n"
 	"  -G, --group=file          Use file as the system group file\n"
+	"  -N, --only-new            Only add missing entries, don't modify or remove existing ones\n"
+	"  -A, --all-ids             Process all IDs, not just 0-99\n"
 	"  -s, --sanity-check        Only perform sanity-checks\n"
 	"  -v, --verbose             Show details about what we are doing (recommended)\n"
 	"  -n, --dry-run             Just say what we would do but do nothing\n"
@@ -776,7 +780,7 @@ void process_old_entries(const struct _info* lst, struct _node** passwd, struct 
     while (walk) {
 	struct _node*	next = walk->next;
 	
-	if ((walk->id<0) || (walk->id>99)) {
+	if (!opt_all_ids && ((walk->id<0) || (walk->id>99))) {
 	    walk=next;
 	    continue;
 	}
@@ -835,7 +839,7 @@ void process_changed_accounts(struct _node* passwd, struct _node* group, struct 
 	char*		newpart;
 	int		make_change;
 
-	if (((passwd->id<0) || (passwd->id>99)) && (passwd->id!=65534))
+	if (!opt_all_ids && ((passwd->id<0) || (passwd->id>99)) && (passwd->id!=65534))
 	    continue;
 
 	mc=find_by_named_entry(master, passwd);
@@ -996,7 +1000,7 @@ void process_changed_groups(struct _node* group, struct _node* master) {
     for (;group; group=group->next) {
 	struct _node*	mc;	/* mastercopy of this group */
 
-	if (((group->id<0) || (group->id>99)) && (group->id!=65534))
+	if (!opt_all_ids && ((group->id<0) || (group->id>99)) && (group->id!=65534))
 	    continue;
 
 	mc=find_by_named_entry(master, group);
@@ -1374,6 +1378,8 @@ int main(int argc, char** argv) {
 	{ "passwd",		required_argument,	0,	'P' },
 	{ "shadow",		required_argument,	0,	'S' },
 	{ "group",		required_argument,	0,	'G' },
+	{ "only-new",		no_argument,		0,	'N' },
+	{ "all-ids",		no_argument,		0,	'A' },
 	{ "sanity-check",	no_argument,		0,	's' },
 	{ "verbose",		no_argument,		0,	'v' },
 	{ "dry-run",		no_argument,		0,	'n' },
@@ -1382,7 +1388,7 @@ int main(int argc, char** argv) {
 	{ 0, 0, 0, 0 }
     };
     
-    while ((optc=getopt_long(argc, argv, "g:p:G:P:S:snvLhV", options, &opt_index))!=-1)
+    while ((optc=getopt_long(argc, argv, "g:p:G:P:S:NAsnvLhV", options, &opt_index))!=-1)
 	switch (optc)  {
 	    case 'p':
 		master_passwd=optarg;
@@ -1400,6 +1406,12 @@ int main(int argc, char** argv) {
 	    case 'G':
 		sys_group=optarg;
 		group_domain="other";
+		break;
+	    case 'N':
+		opt_only_new=1;
+		break;
+	    case 'A':
+		opt_all_ids=1;
 		break;
 	    case 'v':
 		opt_verbose++;
@@ -1455,15 +1467,25 @@ int main(int argc, char** argv) {
     if (read_group(&system_groups, sys_group)!=0)
 	return 2;
 
-    process_moved_entries(specialgroups, &system_groups, master_groups, "group");
-    process_new_entries(specialgroups, &system_groups, master_groups, "group");
-    process_old_entries(specialgroups, &system_groups, master_groups, "group");
-    process_changed_groups(system_groups, master_groups);
+    if (!opt_only_new)
+	process_moved_entries(specialgroups, &system_groups, master_groups, "group");
 
-    process_moved_entries(specialusers, &system_accounts, master_accounts, "user");
+    process_new_entries(specialgroups, &system_groups, master_groups, "group");
+
+    if (!opt_only_new) {
+	process_old_entries(specialgroups, &system_groups, master_groups, "group");
+	process_changed_groups(system_groups, master_groups);
+    }
+
+    if (!opt_only_new)
+	process_moved_entries(specialusers, &system_accounts, master_accounts, "user");
+
     process_new_entries(specialusers, &system_accounts, master_accounts, "user");
-    process_old_entries(specialusers, &system_accounts, master_accounts, "user");
-    process_changed_accounts(system_accounts, system_groups, master_accounts);
+
+    if (!opt_only_new) {
+	process_old_entries(specialusers, &system_accounts, master_accounts, "user");
+	process_changed_accounts(system_accounts, system_groups, master_accounts);
+    }
 
     if (opt_sanity)
 	return 0;
